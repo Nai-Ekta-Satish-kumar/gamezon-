@@ -42,9 +42,7 @@ a {
   color: white;
   cursor: pointer;
 }
-.button:hover {
-  background-color: rgb(168, 166, 166);
-}
+
 
 .games-list-container {
   padding: 20px;
@@ -61,4 +59,11 @@ a {
 .games-table td {
   background-color: #060000;
   color: aliceblue; 
+}
+.search-input {
+  width: 30%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #c593a4;
+  outline: none;
 }

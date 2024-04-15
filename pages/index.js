@@ -5,8 +5,8 @@ function SearchInput({ searchTerm, onSearchChange }) {
   return (
     <input
       type="text"
-      placeholder="Search by title"
-      className="form-control my-3"
+      placeholder="Search your game"
+      className="form-control my-3 search-input"
       value={searchTerm}
       onChange={(e) => onSearchChange(e.target.value)}
     />
@@ -14,7 +14,10 @@ function SearchInput({ searchTerm, onSearchChange }) {
 }
 function SortButton({ sortOrder, onSortClick }) {
   return (
-    <button onClick={onSortClick} className="btn btn-success mx-5 my-3">
+    <button
+      onClick={onSortClick}
+      className="btn btn-outline-warning  mx-5 my-3"
+    >
       {sortOrder === "asc" ? <FaSortAlphaDownAlt /> : <FaSortAlphaDown />}
     </button>
   );
@@ -71,18 +74,27 @@ function GamesList({ games }) {
     }
   });
   const filteredGames = sortedGames.filter((game) =>
-    game.title ? game.title.toLowerCase().includes(searchTerm.toLowerCase()) : false
+    game.title
+      ? game.title.toLowerCase().includes(searchTerm.toLowerCase())
+      : false
   );
   return (
     <div className="container custom-table">
-       <div className="games-list-container">
-      <div className="header">
-        <div className="button" style={{ display: "flex", flexDirection: "row" }}>
-          <SearchInput searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-          <SortButton sortOrder={sortOrder} onSortClick={handleSortClick} />
+      <div className="games-list-container">
+        <div className="header">
+          <div
+            className="button"
+            style={{ display: "flex", flexDirection: "row" }}
+          >
+            <SearchInput
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+            />
+            <SortButton sortOrder={sortOrder} onSortClick={handleSortClick} />
+          </div>
+          <GamesTable filteredGames={filteredGames} />
         </div>
-        <GamesTable filteredGames={filteredGames} />
-      </div></div>
+      </div>
     </div>
   );
 }
