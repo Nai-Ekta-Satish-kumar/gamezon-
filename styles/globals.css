@@ -24,3 +24,13 @@ a {
     background: black;
   }
 }
+.custom-table {
+  border: 2px solid black; 
+  background-color: rgb(33, 28, 28);
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid black; 
+  color: rgb(10, 9, 9);
+}
