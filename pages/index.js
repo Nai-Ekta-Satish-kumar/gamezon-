@@ -21,7 +21,7 @@ function SortButton({ sortOrder, onSortClick }) {
 }
 function GamesTable({ filteredGames }) {
   return (
-    <table className="table table-bordered table-hover">
+    <table className="table table-bordered table-hover games-table">
       <thead>
         <tr>
           <th>Title</th>
@@ -75,13 +75,14 @@ function GamesList({ games }) {
   );
   return (
     <div className="container custom-table">
-      <div style={{ background: "black" }}>
-        <div style={{ display: "flex", flexDirection: "row" }}>
+       <div className="games-list-container">
+      <div className="header">
+        <div className="button" style={{ display: "flex", flexDirection: "row" }}>
           <SearchInput searchTerm={searchTerm} onSearchChange={setSearchTerm} />
           <SortButton sortOrder={sortOrder} onSortClick={handleSortClick} />
         </div>
         <GamesTable filteredGames={filteredGames} />
-      </div>
+      </div></div>
     </div>
   );
 }
